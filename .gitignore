@@ -1,0 +1,6 @@
+venv/
+.env
+keys/
+Flow.txt
+**/__pycache__/
+*.pyc
