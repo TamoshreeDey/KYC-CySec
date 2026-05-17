@@ -35,5 +35,6 @@ backend/
 ├── keys/             # Secure storage for cryptographic keys
 ├── app.py            # Main Flask/FastAPI entry point
 └── .env              # Configuration and secrets
+```
 
-For database I used Mongodb and for backend I used Flask
+#For database I used Mongodb and for backend I used Flask
