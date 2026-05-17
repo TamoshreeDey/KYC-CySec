@@ -25,7 +25,7 @@ The system signs the SHA-256 hash using an **RSA Private Key**.
     2. The hash is encrypted with a Private Key to create a **Digital Signature**.
     3. Anyone with the Public Key can verify the signature to confirm the data's origin.
 
-  ### 3. Data Encryption (Fernet)
+### 3. Data Encryption (Fernet)
 While RSA handles the signatures, we use **Fernet** (from the Python `cryptography` library) to encrypt the actual sensitive data stored in our database.
 
 * **Symmetric Encryption:** Fernet is a symmetric encryption method, meaning it uses the same secret key for both encryption and decryption.
