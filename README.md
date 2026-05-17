@@ -1,4 +1,4 @@
-# Secure KYC Portal with Digital Signatures
+# Secure KYC Backend with Digital Signatures
 A project which demonstrates how Digital signatures work in real life scenarios
 
 This project is a high-security backend system designed to manage KYC (Know Your Customer) workflows. It utilizes a split-architecture design to ensure sensitive user data remains protected while maintaining full auditability through cryptographic signatures.
