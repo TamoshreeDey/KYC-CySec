@@ -13,7 +13,9 @@ def create_app():
     CORS(app)
 
     from routes.submitkyc import kyc_app          # ← removed 'backend.'
+    from routes.retrivekyc import kyc_retrive
     app.register_blueprint(kyc_app, url_prefix='/api/kyc')
+    app.register_blueprint(kyc_retrive, url_prefix='/api/kyc')
 
     @app.route('/health')
     def health():

@@ -2,6 +2,7 @@ import uuid
 from config import db_name, vault_col, kyc_col
 from bson.objectid import ObjectId
 from services.crypto import CryptoService
+import traceback
 
 crypto=CryptoService()
 
@@ -19,7 +20,8 @@ class DatabaseManager:
                 "vault_ref": ref_id, #foreign key
                 "adhaar": encrypted_data.get("adhar_enc"),
                 "pan": encrypted_data.get("pan_enc"),
-                "dob":encrypted_data.get("dob_enc")
+                "dob":encrypted_data.get("dob_enc"),
+                "fingerprint": encrypted_data.get("fingerprint")
             }
             
             signature= crypto.get_signature(metadata, vault_entry)
@@ -35,6 +37,17 @@ class DatabaseManager:
             return ref_id
         except Exception as e:
             print(f"DB Error:{e}")
+            return None
+    
+    @staticmethod
+    def get_vault_ref(adh_fp: str):
+        try:
+            
+            record = db_name[vault_col].find_one({"fingerprint":adh_fp})
+            return record["vault_ref"]
+        except Exception as e:
+            print(f"Data not found:{e}")
+            traceback.print_exc()
             return None
         
     @staticmethod
@@ -58,4 +71,4 @@ class DatabaseManager:
         
         if not is_valid:
             return None, None, "Tampering Detected! data integrity Compromised."
-        return meta, secret, "Verified ok"
+        return og_meta, clean_secret, "Verified ok"

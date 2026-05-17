@@ -65,6 +65,10 @@ def save_kyc_route():
     occupation=data.get('occupation') #employed unemployed or student
     education=data.get('highest_level') #10 12 graduate etc
     
+    
+    #creating finger print
+    fingerprint=crypto.add_finger_print(adhar)
+    
     #Rechecking the birthdate and minor or major
     
     try:
@@ -111,7 +115,8 @@ def save_kyc_route():
     vault_data={
         "adhar_enc": crypto.encrypt_data(adhar),
         "pan_enc": crypto.encrypt_data(pan),
-        "dob_enc": crypto.encrypt_data(date_of_birth)
+        "dob_enc": crypto.encrypt_data(date_of_birth),
+        "fingerprint": fingerprint #to retrieve information on the basis of adhar
     }
     
     try:
