@@ -7,6 +7,7 @@ This project is a high-security backend system designed to manage KYC (Know Your
 - **Decoupled Storage:** Sensitive ID data (like Aadhaar/PAN) is stored in a secure vault, linked to public metadata via unique Reference IDs.
 - **End-to-End Encryption:** Uses the **Fernet** library for symmetric encryption of sensitive database fields.
 - **Non-Repudiation:** Implements RSA-based digital signatures to ensure document integrity.
+- **Digital-Fingerprint:** SHA-256 based one way hashing to add fingerprint for adhar in order to track it down in the database.
 
 ---
 
