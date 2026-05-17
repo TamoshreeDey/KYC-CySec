@@ -3,14 +3,14 @@ A project which demonstrates how Digital signatures work in real life scenarios
 
 This project is a high-security backend system designed to manage KYC (Know Your Customer) workflows. It utilizes a split-architecture design to ensure sensitive user data remains protected while maintaining full auditability through cryptographic signatures.
 
-## 🚀 Key Features
+## Key Features
 - **Decoupled Storage:** Sensitive ID data (like Aadhaar/PAN) is stored in a secure vault, linked to public metadata via unique Reference IDs.
 - **End-to-End Encryption:** Uses the **Fernet** library for symmetric encryption of sensitive database fields.
 - **Non-Repudiation:** Implements RSA-based digital signatures to ensure document integrity.
 
 ---
 
-## 🔐 Cryptography & Hashing
+## Cryptography & Hashing
 To ensure the highest level of security, the project uses a multi-layered cryptographic approach:
 
 ### 1. Hashing (SHA-256)
@@ -26,7 +26,7 @@ The system signs the SHA-256 hash using an **RSA Private Key**.
     3. Anyone with the Public Key can verify the signature to confirm the data's origin.
 
 
-## 🛠️ Project Structure
+## Project Structure
 ```text
 backend/
 ├── routes/           # API endpoints (KYC submission, validation)
@@ -37,4 +37,4 @@ backend/
 └── .env              # Configuration and secrets
 ```
 
-#For database I used Mongodb and for backend I used Flask
+## For database I used Mongodb and for backend I used Flask
